@@ -17,8 +17,8 @@ export default function TextForm(props) {
     props.showAlert("Converted to LowerCase!", "success");
   };
 
-  let ClearText = () => {
-    updatedText("");
+  let ClearText = (event) => {
+    updatedText(event.target.value="")
     props.showAlert("Textbox is cleared!", "success");
   };
 
@@ -32,9 +32,7 @@ export default function TextForm(props) {
   };
 
   let copyText = () => {
-    let textform = document.getElementById("myTextArea");
-    textform.select();
-    navigator.clipboard.writeText(textform.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Text is copied!", "success");
   };
 
@@ -85,9 +83,10 @@ export default function TextForm(props) {
                     ? "1.5px solid #fff"
                     : "1.5px solid #999",
               }}
-              placeholder="Type or Paste your text which do you want to manipulating: "
+              placeholder="Write or Paste your text which do you want to manipulate or analyze: "
               onChange={handleOnChange}
               className={textarePlaceholder}
+              value={text}
               id="myTextArea"
             ></textarea>
             <div className="buttonFlexBox">
@@ -135,6 +134,7 @@ export default function TextForm(props) {
                   className="btn btn-primary my-3 ms-2"
                   style={{ width: "7rem" }}
                   onClick={ClearText}
+                  
                 >
                   Clear Text
                 </button>

@@ -55,7 +55,7 @@ textarea {
 }
 
 .dark-placeholder::placeholder{
-  color:#dedede;
+  color:#9b9b9b;
 }
 
 @media (max-width: 900px) {

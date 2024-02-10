@@ -5,10 +5,11 @@ import TextForm from "./Components/TextForm.js";
 import Footer from "./Components/Footer.js";
 import Alert from "./Components/alert.js";
 import About1 from "./Components/About1.js";
-import { BrowserRouter as BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("dark");
+  const [alert, setAlert] = useState(null);
 
   const toggleMode = () => {
     if (mode === "dark") {
@@ -19,8 +20,6 @@ function App() {
       showAlert("Dark mode is enabled", "success");
     }
   };
-
-  const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
     setAlert({
@@ -34,26 +33,27 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar mode={mode} toggleMode={toggleMode}></Navbar>
+      <Router>
+        <Navbar mode={mode} toggleMode={toggleMode} />
         <Routes>
-          <Route exact 
+          <Route
+            exact
             path="/textUtils/"
             element={
-              ((<Alert alert={alert}></Alert>),
-              (
+              <>
+                <Alert alert={alert} />
                 <TextForm
                   showAlert={showAlert}
                   mode={mode}
                   heading="Try TextUtils - Word counter, Remove extra space and more."
-                ></TextForm> 
-              ))
+                />
+              </>
             }
-          ></Route>
-          <Route exact path="/learn" element={<About1 mode={mode}/>}></Route>
+          />
+          <Route exact path="/learn" element={<About1 mode={mode} />} />
         </Routes>
-        <Footer mode={mode}></Footer>
-      </BrowserRouter>
+        <Footer mode={mode} />
+      </Router>
     </>
   );
 }

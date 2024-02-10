@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
 
 export default function Navbar(props) {
+  const [progress, setProgress] = useState(0);
   return (
     <>
       <div>
+        <LoadingBar
+          color="#f23"
+          waitingTime={500}
+          height="2px"
+          progress={progress}
+          onLoaderFinished={() => setProgress(0)}
+        />
         <nav
           className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
         >
@@ -55,12 +64,21 @@ export default function Navbar(props) {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 px-4">
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/textUtils">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/textUtils"
+                    onClick={() => setProgress(100)}
+                  >
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/learn">
+                  <Link
+                    className="nav-link"
+                    to="/learn"
+                    onClick={() => setProgress(100)}
+                  >
                     Learn
                   </Link>
                 </li>
