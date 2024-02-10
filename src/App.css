@@ -1,0 +1,164 @@
+a {
+  text-decoration: none;
+}
+
+.main-flex-container {
+  display: flex;
+  padding-bottom: 10vh;
+}
+
+.main-flex-container .container:last-child {
+  height: 70vh;
+  margin-left: 50px;
+}
+
+.main-flex-container .container:last-child .resultBox {
+  padding: 10px;
+  border-radius: 10px;
+  height: 62vh;
+  overflow-y: scroll;
+}
+
+.buttonFlexBox {
+  display: flex;
+}
+
+.FooterContainer {
+  width: 100%;
+  height: 75px;
+  background-color: #303236;
+  text-align: center;
+  padding-top:15px;
+  /* margin-top: 50px; */
+}
+
+.FooterContainer img {
+  margin-right: 5px;
+}
+
+svg,
+img {
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  height: 50vh;
+}
+
+.logo_mode {
+  display: flex;
+}
+
+.first-svg {
+  display: none;
+}
+
+.dark-placeholder::placeholder{
+  color:#dedede;
+}
+
+@media (max-width: 900px) {
+  .main-flex-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-flex-container .container:last-child {
+    margin: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-flex-container {
+    padding-bottom: 0;
+  }
+
+  .main-flex-container .container:last-child .resultBox {
+    height: 50vh;
+  }
+
+  textarea {
+    width: 100%;
+    height: 40vh;
+  }
+}
+
+@media (max-width: 990px) {
+  .first-svg {
+    display: block;
+  }
+
+  .second-svg {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .buttonFlexBox {
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .buttonFlexBox div button {
+    margin-left: 0 !important;
+    width: 13rem !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .buttonFlexBox {
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .buttonFlexBox div button {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.card {
+  width: 33%;
+}
+
+.card-main-flex-box {
+  padding: 0 5%;
+}
+
+@media (max-width: 785px) {
+  .card-main-flex-box {
+    padding: 0 5%;
+    margin:0 !important;
+  }
+}
+
+@media (max-width: 730px) {
+  .card-main-flex-box {
+    flex-direction: column;
+    display: grid !important;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 490px) {
+  .card-main-flex-box {
+    flex-direction: column;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    padding: 0 8%;
+    margin:0px !important;
+  }
+
+  .card{
+    margin:20px 0px !important;
+  }
+}
+
+@media (max-width: 300px) {
+  .card-main-flex-box {
+    padding: 0 5%;
+  }
+}
